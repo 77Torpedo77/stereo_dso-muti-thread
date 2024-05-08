@@ -30,7 +30,7 @@
 namespace dso
 {
     ///add by pyl
-    int view_num= 3;
+    int view_num= 2;
     std::vector<int> init_flag(view_num,0);
     std::mutex mtx;
     std::condition_variable init_cv;
@@ -38,7 +38,10 @@ namespace dso
     std::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr> cloud_vector(view_num);
     std::mutex cloud_mtx;
     std::vector<int> v0_key_frame_list;
-
+//    int window_flag=0;
+//    std::mutex window_mtx;
+    std::vector<std::vector<SE3>> cam_location_points(view_num);
+    std::vector<std::vector<Vec3f,Eigen::aligned_allocator<Vec3f>>> vector_allFramePoses(view_num);
 
 
 

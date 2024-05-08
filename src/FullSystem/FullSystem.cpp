@@ -1258,6 +1258,7 @@ void FullSystem::deliverTrackedFrame(FrameHessian* fh, FrameHessian* fh_right, b
             }
             if (add_flag || needKF) makeKeyFrame(fh, fh_right);
             else makeNonKeyFrame(fh, fh_right);
+            add_flag = 0;
         }
 
 	}

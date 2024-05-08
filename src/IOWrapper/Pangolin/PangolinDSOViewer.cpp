@@ -91,6 +91,8 @@ void PangolinDSOViewer::run()
 	printf("START PANGOLIN!\n");
 
 	pangolin::CreateWindowAndBind(boost::to_string(_pclSetting->view_num_index),2*w,2*h);
+
+
 	const int UI_WIDTH = 180;
 
 	glEnable(GL_DEPTH_TEST);
@@ -179,7 +181,7 @@ void PangolinDSOViewer::run()
 	pangolin::Var<double> settings_mapFps("ui.KF fps",0,0,0,false);
 
     // show ground truth
-    std::string gtPath = "/home/jiatianwu/dso/05/05.txt";
+    std::string gtPath = "/home/ubuntu64/myProject/dataset/07/result.txt";
     std::ifstream ReadFile(gtPath.c_str());
     std::string temp;
     std::string delim (" ");
@@ -526,6 +528,29 @@ void PangolinDSOViewer::drawConstraints()
 		glEnd();
 	}
 
+    ////pyl
+    if (_pclSetting->view_num_index==0)
+    {
+        float coloryellow[3] = {1,1,0};
+        glColor3f(coloryellow[0],coloryellow[1],coloryellow[2]);
+        glLineWidth(3);
+
+        glBegin(GL_LINE_STRIP);
+        bool a = cam_location_points[_pclSetting->view_num_index].empty();
+        for (int j = 0; j < view_num; j++) {
+            for(unsigned int i=0;i<vector_allFramePoses[j].size();i++)
+            {
+                glVertex3f((float)vector_allFramePoses[j][i][0],
+                           (float)vector_allFramePoses[j][i][1],
+                           (float)vector_allFramePoses[j][i][2]);
+            }
+        }
+
+        glEnd();
+    }
+
+
+
 	if(settings_showFullTrajectory)
 	{
 		float colorGreen[3] = {0,1,0};
@@ -606,8 +631,10 @@ void PangolinDSOViewer::publishKeyframes(
 			KeyFrameDisplay* kfd = new KeyFrameDisplay();
 			keyframesByKFID[fh->frameID] = kfd;
 			keyframes.push_back(kfd);
+//            vector_keyframes[_pclSetting->view_num_index].push_back(kfd);
 		}
 		keyframesByKFID[fh->frameID]->setFromKF(fh, HCalib);
+//        vector_keyframesByKFID[_pclSetting->view_num_index][fh->frameID]->setFromKF(fh, HCalib);
 	}
 }
 

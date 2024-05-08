@@ -319,6 +319,7 @@ bool KeyFrameDisplay::refreshPC(bool canRefresh, float scaledTH, float absTH, in
 
 void KeyFrameDisplay::drawGTCam(Sophus::Matrix4f m, float lineWidth, float* color, float sizeFactor)
 {
+    ////pyl
     if(cx != 0 || cy != 0)
         return;
 

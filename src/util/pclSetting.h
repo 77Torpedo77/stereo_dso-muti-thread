@@ -6,21 +6,24 @@
 #include <boost/exception/to_string.hpp>
 #include <iostream>
 #include "boost/thread.hpp"
+
+
 #ifndef DSO_MUTITHREADSETTING_H
 #define DSO_MUTITHREADSETTING_H
 
 #endif //DSO_MUTITHREADSETTING_H
-namespace dso{
-    class pclSetting{
+namespace dso {
+    class pclSetting {
     public:
         pclSetting(int _view_num_index) {
             thread_id_str = boost::to_string(boost::this_thread::get_id());
-            std::cout<<thread_id_str+"//////////////////pclsetting_init///////////////////"<<std::endl;
+            std::cout << thread_id_str + "//////////////////pclsetting_init///////////////////" << std::endl;
 
-            strTmpFileName = thread_id_str+"_tmp.pcd";
-            strSaveFileName = thread_id_str+".pcd";
+            strTmpFileName = thread_id_str + "_tmp.pcd";
+            strSaveFileName = thread_id_str + ".pcd";
             view_num_index = _view_num_index;
         }
+
         int numPCL = 0;
         bool isSavePCL = true;
         bool isWritePCL = false;
@@ -31,5 +34,5 @@ namespace dso{
         std::string strSaveFileName;
         int view_num_index;
     };
-}
 
+}

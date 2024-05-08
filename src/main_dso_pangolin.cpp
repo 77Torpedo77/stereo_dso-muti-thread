@@ -599,7 +599,7 @@ int main( int argc, char** argv )
 {
 	//setlocale(LC_ALL, "");
 
-    if(1)
+    if(0)
     {
         std::ofstream finalFile_0("final_0.pcd");
         std::ifstream savedFile0("0.pcd");

@@ -100,6 +100,8 @@ public:
     {
 //            std::string thread_id_str = boost::to_string(boost::this_thread::get_id());
 //            std::cout<<thread_id_str+"//////////////////sample_public///////////////////"<<std::endl;
+        FrameHessian* temp_f = frames.back();
+        cam_location_points[_pclSetting->view_num_index].push_back(temp_f->shell->camToWorld);
         float fx, fy, cx, cy;
         float fxi, fyi, cxi, cyi;
         //float colorIntensity = 1.0f;
@@ -235,6 +237,7 @@ public:
 //                   frame->timestamp,
 //                   frame->id);
 //            std::cout << frame->camToWorld.matrix3x4() << "\n";
+            vector_allFramePoses[_pclSetting->view_num_index].push_back(frame->camToWorld.translation().cast<float>());
         }
 
 
