@@ -462,6 +462,8 @@ void PangolinDSOViewer::reset_internal()
 	openImagesMutex.unlock();
 
 	needReset = false;
+    ////pyl
+    vector_allFramePoses[_pclSetting->view_num_index].clear();
 }
 
 
@@ -531,22 +533,25 @@ void PangolinDSOViewer::drawConstraints()
     ////pyl
     if (_pclSetting->view_num_index==0)
     {
-        float coloryellow[3] = {1,1,0};
-        glColor3f(coloryellow[0],coloryellow[1],coloryellow[2]);
-        glLineWidth(3);
+        //float coloryellow[3] = {1,1,0};
+        std::vector<std::vector<float>> colorVector = {{1,1,0},{0,245,255},{30,144,255}};
+        //glColor3f(coloryellow[0],coloryellow[1],coloryellow[2]);
 
-        glBegin(GL_LINE_STRIP);
         bool a = cam_location_points[_pclSetting->view_num_index].empty();
-        for (int j = 0; j < view_num; j++) {
+        for (int j = 1; j < view_num; j++) {//j=1,do not draw view0,j=pcl_view_index
+            glColor3f(colorVector[j][0],colorVector[j][1],colorVector[j][2]);
+            glLineWidth(3);
+            glBegin(GL_LINE_STRIP);
             for(unsigned int i=0;i<vector_allFramePoses[j].size();i++)
             {
                 glVertex3f((float)vector_allFramePoses[j][i][0],
                            (float)vector_allFramePoses[j][i][1],
                            (float)vector_allFramePoses[j][i][2]);
             }
+            glEnd();
         }
 
-        glEnd();
+
     }
 
 
