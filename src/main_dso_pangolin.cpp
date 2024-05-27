@@ -319,7 +319,8 @@ void test(int &lstart, ImageFolderReader* &reader,ImageFolderReader* &reader_rig
     printf("DELETE FULLSYSTEM!\n");
     delete fullSystem;
 
-
+    if(pclSetting->view_num_index == 0)
+        main_thread_end_flag = 1;
 }
 
 void my_exit_handler(int s)

@@ -1,0 +1,6 @@
+files=/home/ubuntu64/myProject/dataset/07/
+calib=/home/ubuntu64/myProject/dataset/07/camera.txt
+preset=0
+mode=1
+quiet=1
+sampleoutput=1

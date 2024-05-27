@@ -1247,6 +1247,8 @@ void FullSystem::deliverTrackedFrame(FrameHessian* fh, FrameHessian* fh_right, b
                 if (!v0_key_frame_list.empty())
                     std::cout<<v0_key_frame_list.back()<<std::endl;
                 //std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                if(main_thread_end_flag == 0)
+                    break;
             }
             for(int f_id : v0_key_frame_list)
             {

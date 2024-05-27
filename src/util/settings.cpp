@@ -42,6 +42,7 @@ namespace dso
 //    std::mutex window_mtx;
     std::vector<std::vector<SE3>> cam_location_points(view_num);
     std::vector<std::vector<Vec3f,Eigen::aligned_allocator<Vec3f>>> vector_allFramePoses(view_num);
+    int main_thread_end_flag = 0;
 
 
 

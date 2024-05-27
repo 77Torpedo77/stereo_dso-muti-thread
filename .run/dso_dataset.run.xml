@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dso_dataset" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="files=$PROJECT_DIR$/../dataset/07/ calib=$PROJECT_DIR$/../dataset/07/camera.txt preset=0 mode=1 quiet=1 sampleoutput=1" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SDSO_M" TARGET_NAME="dso_dataset" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SDSO_M" RUN_TARGET_NAME="dso_dataset">
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>

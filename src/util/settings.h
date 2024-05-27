@@ -48,6 +48,7 @@ namespace dso
     extern std::vector<int> v0_key_frame_list;
     extern std::vector<std::vector<SE3>> cam_location_points;
     extern std::vector<std::vector<Vec3f,Eigen::aligned_allocator<Vec3f>>> vector_allFramePoses;
+    extern int main_thread_end_flag;
 //    extern int window_flag;
 //    extern std::mutex window_mtx;
 //    std::vector<std::map<int, dso::IOWrap::KeyFrameDisplay *>> vector_keyframesByKFID;
