@@ -266,7 +266,7 @@ void test(int &lstart, ImageFolderReader* &reader,ImageFolderReader* &reader_rig
         gettimeofday(&tv_end, NULL);
 
 
-        fullSystem->printResult("/home/ubuntu64/myProject/stereo_dso-muti-thread/cmake-build-debug/bin/result.txt");
+        fullSystem->printResult("/home/ubuntu64/myProject/stereo_dso-muti-thread/cmake-build-debug/bin/result" +std::to_string(pclSetting->view_num_index)+ ".txt");
 
 
         int numFramesProcessed = abs(idsToPlay[0]-idsToPlay.back());
